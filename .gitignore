@@ -1,0 +1,11 @@
+logs/*.log
+__pycache__/
+data/MNIST/
+data/MNIST/*
+data/MNIST/*.gz
+data/MNIST/*.piclke
+tmp/
+.ipynb_checkpoints/
+.idea/
+github/
+*.pwd
