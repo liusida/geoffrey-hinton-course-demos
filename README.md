@@ -10,6 +10,9 @@ Lecture Slides:
 
 * [Lecture 1][slide_1]
 
+	` demo-lecture-1-1 
+	![demo 1-1](/images/demo-lecture-1-1.png)
+
 * [Lecture 2][slide_2]
 
 [slide_1]:https://d18ky98rnyall9.cloudfront.net/_4bd9216688e0605b8e05f5533577b3b8_lec1.pdf?Expires=1505952000&Signature=bYLWo7ovq6M3OQU7oj84pqQRZah8SwsgQsS9CcJmzgqjpDwWzHXUhe88j~Fa8mXJeUcv6cq7W1qdd6PxBjHI5eg1OvkOh-JttvzTHhpMkgF8vvmxNRluwXQSaEAdsuVh25PWjoyeN-dfavl4LWQgKqBe0Nfp7Dclz0Xych~qFKM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A
