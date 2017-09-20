@@ -10,8 +10,8 @@ Lecture Slides:
 
 * [Lecture 1][slide_1]
 
-	` demo-lecture-1-1 
-	![demo 1-1](/images/demo-lecture-1-1.png)
+	* demo-lecture-1-1 
+		![demo 1-1](/images/demo-lecture-1-1.png)
 
 * [Lecture 2][slide_2]
 
