@@ -1,0 +1,1 @@
+print('No need to setup. Demos are in demos/ directory.')
