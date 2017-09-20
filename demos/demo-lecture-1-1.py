@@ -1,3 +1,9 @@
+"""
+This demo is based on Lecture 1
+"A very simple way to recognize handwritten shapes"
+
+"""
+
 import time
 import numpy as np
 import matplotlib.pyplot as plt
