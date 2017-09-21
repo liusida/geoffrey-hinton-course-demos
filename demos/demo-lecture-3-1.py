@@ -15,12 +15,12 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-
 # ====================================
 # set true weights
 # prepare data
-def prepare_data(total_num, true_weights):
+def prepare_data(total_num, true_weights, rescale=1):
     X = np.random.random_integers(low=0, high=10, size=[3, total_num])
+    X[0,:] = X[0,:] * rescale
     Y = np.matmul( np.transpose(X), true_weights )
     return X,Y
 
@@ -39,7 +39,7 @@ def predict(X, weights):
 #             learning rate is too large or there are bugs in implementation.
 loss_list = []
 def train(X, Y, weights, learning_rate=1e-10):
-    global Error_list
+    global loss_list
     Y_hat = predict(X, weights)
     # [1][2] Explanation:   in the slides, it says use sum:
     #                       "Define the error as the squared residuals summed over all."

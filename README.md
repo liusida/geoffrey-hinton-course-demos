@@ -25,6 +25,9 @@ Navigation:
 	* [demo-lecture-3-1][demo-3-1] (A toy example to illustrate the iterative method)
 		![demo 3-1](/images/demo-lecture-3-1.png)
 
+	* [demo-lecture-3-2][demo-3-2] (A toy example to illustrate the iterative method)
+		![demo 3-2](/images/demo-lecture-3-2.png)
+
 
 
 
@@ -34,3 +37,4 @@ Navigation:
 [demo-2-1]:/demos/demo-lecture-2-1.py
 [slide_3]:/slides/lec-3.pdf
 [demo-3-1]:/demos/demo-lecture-3-1.py
+[demo-3-2]:/demos/demo-lecture-3-2.py
