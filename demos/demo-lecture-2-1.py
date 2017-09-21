@@ -8,29 +8,29 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# context can help the program locate the dataset directory, and also load some useful tools
-# import context
-
 # preparing data:
-# let's say we have a decision boundary y = a * (x-b)^2 + c, see if the perceptrons can learn this curve
-# a, b, c can be random numbers. so that we saw a quadratic curve, we can give the formula.
-# generate positive samples:
-# generate negative samples:
-# concat and shuffle features and labels.
+# let's say we have some positive data: y = a * (x-b)^2 + c,
+# and we generate some negative data.
+# see if the perceptrons can learn the decision boundary.
 def prepare_data(total_num=100, a=0, b=0, c=0):
+    pos_num = total_num//2
+    neg_num = total_num - pos_num
+
+    # generate positive samples:
     if a==0 and b==0 and c==0:
         a,b,c = np.random.randn(3)
-    X_pos = np.random.randn(total_num)
+    X_pos = np.random.randn(pos_num)
     Y_pos = a * np.square(X_pos-b) + c
-    labels_pos = np.ones(total_num)
+    labels_pos = np.ones(pos_num)
 
-    X_neg = np.random.randn(total_num)
-    offset_neg = np.random.rand(total_num) + 5
-    #offset_neg[offset_neg>0] += 1
-    #offset_neg[offset_neg<=0] -= 1
+    # generate negative samples:
+    # Notice: we can not generate negative point on the other side of positive curve. Preceptrons can not learn that.
+    X_neg = np.random.randn(neg_num)
+    offset_neg = np.random.rand(neg_num) + 5
     Y_neg = a * np.square(X_neg-b) + c + offset_neg
-    labels_neg = np.zeros(total_num)
+    labels_neg = np.zeros(neg_num)
 
+    # concat and shuffle features and labels.
     X = np.concatenate((X_pos, X_neg))
     Y = np.concatenate((Y_pos, Y_neg))
     labels = np.concatenate((labels_pos, labels_neg))
@@ -40,15 +40,12 @@ def prepare_data(total_num=100, a=0, b=0, c=0):
     Y = Y[random_index]
     labels = labels[random_index]
 
+    # 3 features(x, x^2, y), with 1 at the end to behave with the last weight as bias
     X = X.reshape(1,-1)
     Y = Y.reshape(1,-1)
     features = np.concatenate((X, np.square(X), Y, np.ones(X.shape)), axis=0)
 
     return features,labels
-
-# Decide what are features?
-# required: x, x^2
-# optional: x^3, sqrt(x)
 
 # Predict
 # y_hat = transpose(X) * W + b
@@ -56,7 +53,6 @@ def prepare_data(total_num=100, a=0, b=0, c=0):
 def predict(features, weights):
     weights = weights.reshape(-1,1)
     Y_hat = np.matmul( np.transpose(features), weights )
-    #print("calculate result: ", Y_hat)
     Y_hat[Y_hat>0] = 1
     Y_hat[Y_hat<=0] = 0
     Y_hat = np.transpose(Y_hat).reshape(-1)
@@ -70,105 +66,118 @@ def predict(features, weights):
 #   else:
 #       W -= X
 def train(feature, label, weights):
-    #print("==== training detail ===== ")
-    #print("label: ", label)
-    #print("feature: ", feature)
-    #print("weights: ", weights)
-
     y_hat = predict(feature, weights)
-    #print("prediction: ", y_hat)
     if y_hat != label:
         if y_hat==1:
             weights -= feature
         else:
             weights += feature
-    #print("weights after update: ", weights)
-
     return weights
 
-# Show
-# plot the target curve, using the secret a,b,c we have.
-# plot a moving curve, using trained weights, to see if it will converge to the target curve.
+# ====================================
+#  Show functions
 saved_curve = None
-def show_curve(ax, X, Y, weights, color='steelblue'):
+def show_curve(ax, X, Y_hat, color='red'):
+    """show the learned decision boundary in 2d canvas"""
     global saved_curve
     sorted_index = X.argsort()
-    Y_hat = -(X*weights[0]+np.square(X)*weights[1]+weights[3]) / weights[2]
     if saved_curve == None:
         saved_curve, = ax.plot(X[sorted_index], Y_hat[sorted_index], color=color)
     else:
         saved_curve.set_data(X[sorted_index], Y_hat[sorted_index])
 
-def show_target_curve(ax, X,Y):
-    sorted_index = X.argsort()
-    ax.plot(X[sorted_index], Y[sorted_index], color='steelblue')
-
 def show_target_neg_scatter(ax, X, Y):
     ax.scatter(X, Y, color='green')
+
+def show_target_pos_scatter(ax, X, Y):
+    ax.scatter(X, Y, color='steelblue')
+
+saved_active_scatter = None
+def show_active_scatter(ax, x, y):
+    """show which point is training now."""
+    global saved_active_scatter
+    if saved_active_scatter:
+        saved_active_scatter.remove()
+    saved_active_scatter = ax.scatter(x, y, color='yellow')
 
 def show_3d_scatter(ax, features, labels):
     ax.scatter(features[0,labels==1], features[1,labels==1], features[2,labels==1], color='steelblue')
     ax.scatter(features[0,labels==0], features[1,labels==0], features[2,labels==0], color='green')
 
 saved_surface = None
-def show_3d_decision_boundary(ax, weights, XY_range):
-    """TODO: here must be still have some errors in it. the decision surface is not right."""
+def show_3d_decision_boundary(ax, X, Y, Z):
     global saved_surface
-    X = np.transpose(XY_range)[0]
-    Y = np.transpose(XY_range)[1]
+    max_points = 10
+    index_max = np.argmax(X)
+    index_min = np.argmin(X)
+    X = np.concatenate(([X[index_min]], X[:max_points], [X[index_max]]))
+    Y = np.concatenate(([Y[index_min]], Y[:max_points], [Y[index_max]]))
+    Z = np.concatenate(([Z[index_min]], Z[:max_points], [Z[index_max]]))
+    sorted_index = X.argsort()
+    X = X[sorted_index]
+    Y = Y[sorted_index]
+    Z = Z[sorted_index]
     X, Y = np.meshgrid(X, Y)
-    X_2 = np.square(X)
-    Z = -(X*weights[0] + Y*weights[2] + weights[3]) / weights[1]
     if saved_surface:
         saved_surface.remove()
     saved_surface = ax.plot_surface(X, Y, Z, alpha=0.6, color='red')
 
+# ====================================
 # Main process
 def main():
     plt.ion()
     plt.show()
-    fig = plt.figure()
+    fig = plt.figure(figsize=[10,5])
 
     ax_2d = fig.add_subplot(121)
     ax_3d = fig.add_subplot(122, projection='3d')
 
-    total_num = 300
-    train_num = 300
+    total_num = 200
+    train_num = 200
 
     features,labels = prepare_data(total_num=total_num)
-    X_min = np.min(features[0])
-    X_max = np.max(features[0])
-    Y_min = np.min(features[2])
-    Y_max = np.max(features[2])
-    XY_range = np.array([[X_min, Y_min], [X_max, Y_min], [X_min, Y_max], [X_max, Y_max]])
 
     features_train = features[:,:train_num]
     labels_train = labels[:train_num]
 
     #initialize weights: 3 feature weights and 1 bias
-    weights = np.zeros(4)
+    weights = np.random.randn(4)
 
     # show target curve
-    show_target_curve(ax_2d, features[0,labels==1], features[2,labels==1])
-    show_target_neg_scatter(ax_2d, features[0,labels==0], features[2,labels==0])
+    # in 2d canvas, i, j representation:
+    # in 3d canvas, i, j, k representation:
+    axis_i = 0
+    axis_j = 2
+    axis_hidden = 1
+    # Unfortunately, axis_j cannot represent data x,
+    # because there will be two kind of value of x respect to a linear y, so the decision boundary will be broken.
+
+    show_target_pos_scatter(ax_2d, features[axis_i,labels==1], features[axis_j,labels==1])
+    show_target_neg_scatter(ax_2d, features[axis_i,labels==0], features[axis_j,labels==0])
     show_3d_scatter(ax_3d, features, labels)
     for i in range(100):
         for i_, feature in enumerate(np.transpose(features_train)):
             label = labels_train[i_]
             weights = train(feature=feature, label=label, weights=weights)
+            show_active_scatter(ax_2d, feature[axis_i], feature[axis_j] )
 
-        # every iteration show predict curve
-        Y_hat = predict(features, weights)
-        show_curve(ax_2d,features[0,Y_hat==1], features[2,Y_hat==1], weights, color='red')
-        #show_3d_decision_boundary(ax_3d, weights, XY_range )
-        #fig.canvas.draw()
-        #time.sleep(0.5)
+            if i_%(train_num//10)==0:
+                # every iteration show 10 steps
+                X = features[axis_i]
+                X_hidden = features[axis_hidden]
+                Y_hat = -(X * weights[axis_i] + X_hidden * weights[axis_hidden] + weights[3]) / weights[axis_j]
+                show_curve(ax_2d, X, Y_hat)
+
+                show_3d_decision_boundary(ax_3d, X, X_hidden, Y_hat )
+                ax_2d.set_title('weights: %f,%f,%f,%f'%(weights[0], weights[1], weights[2], weights[3]))
+                fig.canvas.draw()
+                time.sleep(0.1)
 
         Y_hat = predict(features, weights)
         if (np.mean(Y_hat==labels)==1):
             break
 
-    print(i,'epoches')
+    print('donw in ',i,'epoches')
     plt.ioff()
     plt.show()
 
