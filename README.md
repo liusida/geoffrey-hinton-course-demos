@@ -30,11 +30,10 @@ Navigation:
 
 
 
-
-[slide_1]:/slides/lec-1.pdf
+[slide_1]:/slides/lec1.pdf
 [demo-1-1]:/demos/demo-lecture-1-1.py
-[slide_2]:/slides/lec-2.pdf
+[slide_2]:/slides/lec2.pdf
 [demo-2-1]:/demos/demo-lecture-2-1.py
-[slide_3]:/slides/lec-3.pdf
+[slide_3]:/slides/lec3.pdf
 [demo-3-1]:/demos/demo-lecture-3-1.py
 [demo-3-2]:/demos/demo-lecture-3-2.py
