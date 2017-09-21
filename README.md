@@ -25,7 +25,7 @@ Navigation:
 	* [demo-lecture-3-1][demo-3-1] (A toy example to illustrate the iterative method)
 		![demo 3-1](/images/demo-lecture-3-1.png)
 
-	* [demo-lecture-3-2][demo-3-2] (A toy example to illustrate the iterative method)
+	* [demo-lecture-3-2][demo-3-2] (The error surface for a linear neuron)
 		![demo 3-2](/images/demo-lecture-3-2.png)
 
 
