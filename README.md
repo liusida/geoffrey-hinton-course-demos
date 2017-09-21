@@ -6,7 +6,7 @@ I am now taking this course and willing to implement some demos.
 Course Address:
 https://www.coursera.org/learn/neural-networks
 
-The Course is free for everyone, and there are not a permanent link for lecture slides, so I think it is legal to share the slides here. If not, someone please remind me.
+_The Course is free for everyone, and there are not a permanent link for lecture slides, so I think it is legal to share the slides here. If not, someone please remind me._
 
 Navigation:
 
