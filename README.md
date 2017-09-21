@@ -6,7 +6,7 @@ I am now taking this course and willing to implement some demos.
 Course Address:
 https://www.coursera.org/learn/neural-networks
 
-Memu:
+Navigation:
 
 * [Lecture 1 Slides][slide_1]
 
