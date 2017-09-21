@@ -12,22 +12,25 @@ Navigation:
 
 * [Lecture 1 Slides][slide_1]
 
-	* demo-lecture-1-1 (A very simple way to recognize handwritten shapes)
+	* [demo-lecture-1-1][demo-1-1] (A very simple way to recognize handwritten shapes)
 		![demo 1-1](/images/demo-lecture-1-1.png)
 
 * [Lecture 2 Slides][slide_2]
 
-	* demo-lecture-2-1 (Perceptrons: The first generation of neural networks)
+	* [demo-lecture-2-1][demo-2-1] (Perceptrons: The first generation of neural networks)
 		![demo 2-1](/images/demo-lecture-2-1.png)
 
 * [Lecture 3 Slides][slide_3]
 
-	* demo-lecture-3-1 (A toy example to illustrate the iterative method)
+	* [demo-lecture-3-1][demo-3-1] (A toy example to illustrate the iterative method)
 		![demo 3-1](/images/demo-lecture-3-1.png)
 
 
 
 
 [slide_1]:/slides/lec-1.pdf
+[demo-1-1]:/demos/demo-lecture-1-1.py
 [slide_2]:/slides/lec-2.pdf
+[demo-2-1]:/demos/demo-lecture-2-1.py
 [slide_3]:/slides/lec-3.pdf
+[demo-3-1]:/demos/demo-lecture-3-1.py
