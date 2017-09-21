@@ -28,7 +28,7 @@ Navigation:
 	* [demo-lecture-3-2][demo-3-2] (The error surface for a linear neuron)
 		![demo 3-2](/images/demo-lecture-3-2.png)
 
-	* [demo-lecture-3-3][demo-3-3] (The error surface for a linear neuron)
+	* [demo-lecture-3-3][demo-3-3] (A simple example of overfitting)
 		![demo 3-3](/images/demo-lecture-3-3.png)
 
 
