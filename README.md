@@ -6,18 +6,27 @@ I am now taking this course and willing to implement some demos.
 Course Address:
 https://www.coursera.org/learn/neural-networks
 
+The Course is free for everyone, and there are not a permanent link for lecture slides, so I think it is legal to share the slides here. If not, someone please remind me.
+
 Navigation:
 
 * [Lecture 1 Slides][slide_1]
 
-	* demo-lecture-1-1 screenshoot
+	* demo-lecture-1-1 (A very simple way to recognize handwritten shapes)
 		![demo 1-1](/images/demo-lecture-1-1.png)
 
 * [Lecture 2 Slides][slide_2]
 
-	* demo-lecture-2-1 screenshoot
+	* demo-lecture-2-1 (Perceptrons: The first generation of neural networks)
 		![demo 2-1](/images/demo-lecture-2-1.png)
 
-[slide_1]:https://d18ky98rnyall9.cloudfront.net/_4bd9216688e0605b8e05f5533577b3b8_lec1.pdf?Expires=1505952000&Signature=bYLWo7ovq6M3OQU7oj84pqQRZah8SwsgQsS9CcJmzgqjpDwWzHXUhe88j~Fa8mXJeUcv6cq7W1qdd6PxBjHI5eg1OvkOh-JttvzTHhpMkgF8vvmxNRluwXQSaEAdsuVh25PWjoyeN-dfavl4LWQgKqBe0Nfp7Dclz0Xych~qFKM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A
-[slide_2]:https://d18ky98rnyall9.cloudfront.net/_4bd9216688e0605b8e05f5533577b3b8_lec2.pdf?Expires=1506038400&Signature=KMFPialCbXjSESDKJCXW654aMZdhgr0GQFc-lWQGRZ4Dv0rX84jT4rzq5pf8A667CKKvUKSNWQIi2Pso8C9915z0iVWY515R91BIpJBDoLVGjb-QjXS65XQb-vSwIKQCrV6-TgrTBCDF0XAJC7mIh1bmEoJWy1B9M1MOIms~K~Q_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A
+* [Lecture 3 Slides][slide_3]
 
+	* demo-lecture-3-1 (A toy example to illustrate the iterative method)
+
+
+
+
+[slide_1]:/slides/lec-1.pdf
+[slide_2]:/slides/lec-2.pdf
+[slide_3]:/slides/lec-3.pdf
