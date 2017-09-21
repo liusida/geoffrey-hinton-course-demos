@@ -28,6 +28,9 @@ Navigation:
 	* [demo-lecture-3-2][demo-3-2] (The error surface for a linear neuron)
 		![demo 3-2](/images/demo-lecture-3-2.png)
 
+	* [demo-lecture-3-3][demo-3-3] (The error surface for a linear neuron)
+		![demo 3-3](/images/demo-lecture-3-3.png)
+
 
 
 [slide_1]:/slides/lec1.pdf
@@ -37,3 +40,4 @@ Navigation:
 [slide_3]:/slides/lec3.pdf
 [demo-3-1]:/demos/demo-lecture-3-1.py
 [demo-3-2]:/demos/demo-lecture-3-2.py
+[demo-3-3]:/demos/demo-lecture-3-3.py
