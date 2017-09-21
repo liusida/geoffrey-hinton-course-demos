@@ -23,6 +23,7 @@ Navigation:
 * [Lecture 3 Slides][slide_3]
 
 	* demo-lecture-3-1 (A toy example to illustrate the iterative method)
+		![demo 3-1](/images/demo-lecture-3-1.png)
 
 
 
