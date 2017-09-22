@@ -8,3 +8,5 @@ tmp/
 github/
 *.pwd
 git.sh
+tensorboard_log/events*
+tensorboard_log/*/events*
