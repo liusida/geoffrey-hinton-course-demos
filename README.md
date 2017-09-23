@@ -31,6 +31,10 @@ Navigation:
 	* [demo-lecture-3-3][demo-3-3] (A simple example of overfitting)
 		![demo 3-3](/images/demo-lecture-3-3.png)
 
+* [Lecture 4 Slides][slide_4]
+
+	* [demo-lecture-4-1][demo-4-1] (A simple example of relational information)
+		![demo 4-1](/images/demo-lecture-4-1.png)
 
 
 [slide_1]:/slides/lec1.pdf
@@ -41,3 +45,5 @@ Navigation:
 [demo-3-1]:/demos/demo-lecture-3-1.py
 [demo-3-2]:/demos/demo-lecture-3-2.py
 [demo-3-3]:/demos/demo-lecture-3-3.py
+[slide_4]:/slides/lec4.pdf
+[demo-4-1]:/demos/demo-lecture-4-1.py
