@@ -224,3 +224,6 @@ def main():
 if __name__=='__main__':
     main()
 
+# ----------------------------------------------------------------------------
+# [1] If you'd like to implement using numpy, take a look at:
+# https://github.com/radekosmulski/10_neural_nets/blob/master/family_tree.py
